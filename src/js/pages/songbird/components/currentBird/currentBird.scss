@@ -1,0 +1,90 @@
+.songbird-currentbird-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    background-color: rgb(31, 24, 9);
+    border-radius: 5px;
+    border: 2px rgba(0,0,0,.125);
+}
+.songbird-img-container{
+    margin: 10px;
+}
+.songbird-currentbird{
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(180deg,rgba(8,15,26,.59),rgba(17,17,46,.46)), url("../../../../../assets/png/sticker_vk_wwf_012.png");
+    background-size: cover;
+}
+.songbird-current-info{
+    width: 100%;
+    height: 120px;
+}
+.songbird-question{
+    color: rgba(255, 140, 0, 0.7);
+}
+.songbird-player{
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+.songbird-playstop-button{
+    width: 55px;
+    height: 55px;
+    border-radius: 20px;
+    border: 3px solid rgba(255, 140, 0, 0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.songbird-player-state{
+    transition: width 1s;
+    background: rgba(255, 140, 0, 0.7);
+    width: 0%;
+    height: 5px;
+}
+.songbird-player-duration{
+    width: 100%;
+    margin: 0px 10px;
+    background-color: rgb(14, 11, 4);
+}
+.songbird-nan-player{
+    display: flex;
+    justify-content: space-between;
+}
+.songbird-left-pause{
+    margin: 0 10px;
+    height: 40px;
+    width: 3px;
+    background: black;
+    border-radius: 2px;
+}
+.songbird-rigt-pause :nth-child(1){
+    border-radius: 2px;
+    height: 20px;
+    width: 3px;
+    background: black;
+}
+.songbird-rigt-pause :nth-child(2){
+    border-radius: 2px;
+    height: 20px;
+    width: 3px;
+    background: black;
+}
+.songbird-rigt-pause{
+    margin: 0px 10px;
+}
+.songbird-left-pause.active{
+    transform: translateX(6px);
+}
+.songbird-rigt-pause.active{
+    transform: translateX(-7px);
+}
+.songbird-rigt-pause.active :nth-child(1){
+    transform: translateY(4.5px) rotate(-45deg);
+    height: 26px;
+}
+.songbird-rigt-pause.active :nth-child(2){
+    transform: translateY(-4.5px) rotate(45deg);
+    height: 26px;
+}

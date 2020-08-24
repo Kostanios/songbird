@@ -1,0 +1,18 @@
+.songbird-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.songbird-header div {
+    margin: 10px 30px;
+}
+.songbird-label{
+  font-family: "Junior";
+  font-size: 3rem;
+}
+.songbird-label :nth-child(1){
+    color: white;
+}
+.songbird-label :nth-child(2){
+    color: rgba(255, 140, 0, 0.7);
+}
