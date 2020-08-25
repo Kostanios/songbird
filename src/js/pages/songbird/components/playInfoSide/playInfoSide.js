@@ -1,10 +1,15 @@
-import  React, {useState} from 'react';
+import  React, { useState, useContext } from 'react';
 import './playInfoSide.scss';
-import { songBirdDB } from '../../../../../assets/songBirdAudio/SongBirdVideoAudio'
-import {levelsObject} from '../../constants/levelsObject'
+import { songBirdDB } from '../../../../../assets/songBirdAudio/SongBirdVideoAudio';
+import { levelsObject } from '../../constants/levelsObject';
+import { LevelContext } from '../../constants/levelContext';
 export function PlayInfoSide () {
+  const level = useContext(LevelContext);
+  console.log(level);
+  const leveldb = level.leveldb.leveldb;
+  const setLeveldb = level.leveldb.setLeveldb;
   const [birdIndex, setBirdIndex] = useState(null);
-  const [leveldb, setLeveldb] = useState(songBirdDB[0]);
+  //const [leveldb, setLeveldb] = useState(songBirdDB[0]);
   const loadBird = (index, setBirdIndex) => {
     let e = leveldb[index];
       if(e.song === undefined){
@@ -15,7 +20,7 @@ export function PlayInfoSide () {
           let song = new Audio(obj.recordings[0].file);
           CopyLeveldb[index].song = song;
           setLeveldb(CopyLeveldb);
-          setBirdIndex(index)
+          setBirdIndex(index);
         })
       }
       else{
@@ -45,7 +50,7 @@ export function PlayInfoSide () {
       birdIndex={birdIndex}
       leveldb={leveldb}
     />
-    <button type="button" className="btn btn-success songbird-next-level-button">Success</button>
+    <button type="button" className="btn btn-success songbird-next-level-button disabled">Success</button>
   </div>
 } 
 

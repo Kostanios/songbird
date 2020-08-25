@@ -57,16 +57,13 @@
     height: 40px;
     width: 3px;
     background: black;
-    border-radius: 2px;
 }
 .songbird-rigt-pause :nth-child(1){
-    border-radius: 2px;
     height: 20px;
     width: 3px;
     background: black;
 }
 .songbird-rigt-pause :nth-child(2){
-    border-radius: 2px;
     height: 20px;
     width: 3px;
     background: black;
@@ -76,15 +73,19 @@
 }
 .songbird-left-pause.active{
     transform: translateX(6px);
+    border-radius: 2px;
 }
 .songbird-rigt-pause.active{
     transform: translateX(-7px);
+    border-radius: 2px;
 }
 .songbird-rigt-pause.active :nth-child(1){
     transform: translateY(4.5px) rotate(-45deg);
     height: 26px;
+    border-radius: 2px;
 }
 .songbird-rigt-pause.active :nth-child(2){
     transform: translateY(-4.5px) rotate(45deg);
     height: 26px;
+    border-radius: 2px;
 }

@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LevelContext } from '../../constants/levelContext';
 import "./currentBird.scss";
 export function CurrentBird (){
+  const level = useContext(LevelContext);
+  console.log(level);
+  
     return <div className="songbird-currentbird-container">
       <div className="songbird-img-container">
         <div className="songbird-currentbird"></div>
