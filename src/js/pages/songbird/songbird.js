@@ -4,13 +4,13 @@ import { Header } from './components/header/header';
 import { Levels } from './components/levels/levels';
 import { CurrentBird } from './components/currentBird/currentBird';
 import { PlayInfoSide } from './components/playInfoSide/playInfoSide';
-import { songBirdDB } from '../../../assets/songBirdAudio/SongBirdVideoAudio';
+import { songBirdDB } from '../../../assets/songBirdNames/SongBirdName';
 import './songbird.scss';
 export function Songbird () {
     const [levelIndex, setLevelIndex] = useState(0);
     const [leveldb, setLeveldb] = useState(songBirdDB[0]);
     const [correctAnswer, setCorrectAnswer] = useState(null);
-    if(correctAnswer === null){ setCorrectAnswer( parseInt( Math.random() * 5 ))}
+    if(correctAnswer === null){ setCorrectAnswer( parseInt( Math.random() * 5 )) }
 
     return <div id="songbird-main-page">
       <LevelContext.Provider value={{

@@ -38,7 +38,7 @@
     align-items: center;
 }
 .songbird-player-state{
-    transition: width 1s;
+    transition: width 0.1s;
     background: rgba(255, 140, 0, 0.7);
     width: 0%;
     height: 5px;
@@ -52,23 +52,31 @@
     display: flex;
     justify-content: space-between;
 }
+.songbird-nan-player p{
+    margin: 0 10px;
+    color: rgba(255, 140, 0, 0.7);;
+}
 .songbird-left-pause{
+    transition: transform 0.2s ease;
     margin: 0 10px;
     height: 40px;
     width: 3px;
-    background: black;
+    background: rgba(255, 140, 0, 0.7);
 }
 .songbird-rigt-pause :nth-child(1){
+    transition: transform 0.2s ease;
     height: 20px;
     width: 3px;
-    background: black;
+    background: rgba(255, 140, 0, 0.7);
 }
 .songbird-rigt-pause :nth-child(2){
+    transition: transform 0.2s ease;
     height: 20px;
     width: 3px;
-    background: black;
+    background: rgba(255, 140, 0, 0.7);
 }
 .songbird-rigt-pause{
+    transition: transform 0.2s ease;
     margin: 0px 10px;
 }
 .songbird-left-pause.active{
