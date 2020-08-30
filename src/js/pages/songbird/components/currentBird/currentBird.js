@@ -6,6 +6,7 @@ import { intToString } from '../../utilites/intToString';
 import { playerAction } from '../../utilites/playerActions';
 export function CurrentBird (){
   const level = useContext(LevelContext);
+  console.log(level.leveldb.leveldb[level.answerState.correctAnswer]);
   let timer = level.currentBirdPanel.currentBirdTimer;
   let setTimer = level.currentBirdPanel.setCurrentBirdTimer;
   let player =  level.currentBirdPanel.currentBirdPlayer;
@@ -36,9 +37,24 @@ export function CurrentBird (){
   if( !duration ) { 
     duration = '...';
   }
+  function BirdImg ({level}) {
+    let leveldb = level.leveldb.leveldb;
+    let levelState = level.levelState.levelState;
+    console.log('progress-' + level.answerState.correctAnswer);
+    if(levelState !== 'complited'){
+      return <div className="songbird-currentbird"></div>
+    }
+    else{
+      console.log(level)
+      let secretImg = level.leveldb.leveldb[level.answerState.correctAnswer].photoUrl;
+      return <div className="songbird-currentbird" style={{background: `center / cover no-repeat url(${secretImg})`}}></div>
+    }
+  }
     return <div className="songbird-currentbird-container">
       <div className="songbird-img-container">
-        <div className="songbird-currentbird"></div>
+        <BirdImg 
+          level={level}
+        />
       </div>
       <div className="songbird-current-info">
         <div className="container flex-container">

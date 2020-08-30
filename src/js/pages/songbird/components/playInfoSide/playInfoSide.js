@@ -11,7 +11,8 @@ export function PlayInfoSide () {
   console.log(level);
   const leveldb = level.leveldb.leveldb;
   const [points, setPoints] = useState(5);
-  const [levelState, setLevelState] = useState('in progress');
+  const levelState = level.levelState.levelState;
+  const setLevelState = level.levelState.setLevelState;
   const setLeveldb = level.leveldb.setLeveldb;
   const [birdIndex, setBirdIndex] = useState(null);
   const [player, setPlayer] = useState("active");
@@ -164,7 +165,7 @@ function InfoSide (args) {
   if(!duration){duration='...'} 
   return <div className="col-8">
     <div className="songBird-current-bird-info">
-      <div className="songbird-current-bird-img" style={{background: `center / cover no-repeat url(${imgUrl})`}}></div>
+      <div id="info-bird" className="songbird-current-bird-img" style={{background: `center / cover no-repeat url(${imgUrl})`}}></div>
       <div className="songbird-info-player">
         <div className="songbird-player">
             <div
@@ -193,6 +194,7 @@ function InfoSide (args) {
           <p className="songbird-nan-player-state">{intToString(parseInt(timer))}</p>
           <p className="songbird-nan-player-duration">{duration}</p>
         </div>
+        <div className="songbird-information-block">{db[args.birdIndex].rusinfo}</div>
       </div>
     </div>
   </div>

@@ -8,6 +8,6 @@ export function Header () {
           <label>SONG</label>
           <label>BIRD</label>
       </div>
-      <div className="points">Points: {level.pointsState.points}</div>
+      <div className="songbird-points">Points: {level.pointsState.points}</div>
     </div>
 }

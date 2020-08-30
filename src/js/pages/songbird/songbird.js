@@ -13,6 +13,7 @@ export function Songbird () {
     const [leveldb, setLeveldb] = useState(songBirdDB[0]);
     const [correctAnswer, setCorrectAnswer] = useState(null);
     const [points, setPoints] = useState(0);
+    const [levelState, setLevelState] = useState('in progress');
     if(correctAnswer === null){ setCorrectAnswer( parseInt( Math.random() * 5 )) }
 
     return <div id="songbird-main-page">
@@ -20,6 +21,8 @@ export function Songbird () {
         levelState:{
           levelIndex: levelIndex,
           setLevelIndex: setLevelIndex,
+          levelState: levelState,
+          setLevelState: setLevelState,
         },
         answerState:{
           correctAnswer: correctAnswer,
