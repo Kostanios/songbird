@@ -7,9 +7,12 @@ import { PlayInfoSide } from './components/playInfoSide/playInfoSide';
 import { songBirdDB } from '../../../assets/songBirdNames/SongBirdName';
 import './songbird.scss';
 export function Songbird () {
+    const [currentBirdTimer, setCurrentBirdTimer] = useState(0);
+    const [currentBirdPlayer, setCurrentBirdPlayer] = useState("active");
     const [levelIndex, setLevelIndex] = useState(0);
     const [leveldb, setLeveldb] = useState(songBirdDB[0]);
     const [correctAnswer, setCorrectAnswer] = useState(null);
+    const [points, setPoints] = useState(0);
     if(correctAnswer === null){ setCorrectAnswer( parseInt( Math.random() * 5 )) }
 
     return <div id="songbird-main-page">
@@ -25,7 +28,18 @@ export function Songbird () {
         leveldb:{
           leveldb: leveldb,
           setLeveldb: setLeveldb,
-        }
+        },
+        currentBirdPanel:{
+          currentBirdTimer: currentBirdTimer,
+          setCurrentBirdTimer: setCurrentBirdTimer,
+          currentBirdPlayer: currentBirdPlayer,
+          setCurrentBirdPlayer: setCurrentBirdPlayer,
+        },
+        pointsState: {
+          points: points,
+          setPoints: setPoints
+        },
+        
       }}>
         <Header/>
         <Levels/>

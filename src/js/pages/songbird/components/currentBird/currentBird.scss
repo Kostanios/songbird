@@ -24,7 +24,7 @@
     color: rgba(255, 140, 0, 0.7);
 }
 .songbird-player{
-    margin: 10px;
+    margin: 0 10px;
     display: flex;
     align-items: center;
 }
@@ -96,4 +96,11 @@
     transform: translateY(-4.5px) rotate(45deg);
     height: 26px;
     border-radius: 2px;
+}
+.flex-container{
+    display: flex;
+    justify-content: space-between;
+}
+.form-control-range{
+    width: 100px;
 }
