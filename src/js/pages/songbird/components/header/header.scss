@@ -1,6 +1,7 @@
 .songbird-header{
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 .songbird-header div {

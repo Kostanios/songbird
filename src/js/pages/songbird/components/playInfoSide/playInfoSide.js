@@ -6,7 +6,9 @@ import { stringToInt } from '../../utilites/stringToInt';
 import { intToString } from '../../utilites/intToString';
 import { playerAction } from '../../utilites/playerActions';
 import { songBirdDB } from '../../../../../assets/songBirdNames/SongBirdName';
-import { error, correct } from '../../../../../assets/songBirdAudio/audio';
+import correct from '../../../../../assets/songBirdAudio/jg-032316-sfx-elearning-correct-answer-sound-1.mp3';
+import error from '../../../../../assets/songBirdAudio/jg-032316-sfx-feedback-incorrect-25.mp3'
+
 export function PlayInfoSide () {
   const level = useContext(LevelContext);
   console.log(level);
@@ -28,7 +30,8 @@ export function PlayInfoSide () {
           CopyLeveldb[index].tabState = true;
           setLeveldb(CopyLeveldb);
         }
-        correct.play();
+        let a = new Audio(correct);
+        a.play()
         setLevelState('complited');
       }
       else{
@@ -39,7 +42,8 @@ export function PlayInfoSide () {
         if(points > 1){
           setPoints(points-1);
         }
-        error.play()
+        let a = new Audio(error);
+        a.play()
       }
     }
     let e = leveldb[index];
@@ -136,7 +140,7 @@ function PlaySide (args) {
       {birdName}
     </a>
   })
-  return <div className="col-4">
+  return <div className="songbird-birds-container">
     <div className="list-group" id="list-tab" role="tablist">
       {birdsArray}
     </div>
@@ -173,14 +177,14 @@ function InfoSide (args) {
     duration = db[args.birdIndex].songDuration;
   }
   else{
-    return <div className="col-8">
+    return <div className="songBird-current-bird-info-container">
       <div className="songBird-current-bird-info">
-        послушайте пение птицы и попробуйте угадать какой птице из списка принадлежит этот голос
+        <p>послушайте пение птицы и попробуйте угадать какой птице из списка принадлежит этот голос</p>
       </div>
     </div>
   }
   if(!duration){duration='...'} 
-  return <div className="col-8">
+  return <div className="songBird-current-bird-info-container">
     <div className="songBird-current-bird-info">
       <div id="info-bird" className="songbird-current-bird-img" style={{background: `center / cover no-repeat url(${imgUrl})`}}></div>
       <div className="songbird-info-player">

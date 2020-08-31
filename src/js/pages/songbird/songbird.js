@@ -7,6 +7,7 @@ import { PlayInfoSide } from './components/playInfoSide/playInfoSide';
 import { songBirdDB } from '../../../assets/songBirdNames/SongBirdName';
 import { StatisticLogo } from './components/statisticLogo/statisticLogo';
 import './songbird.scss';
+
 export function Songbird () {
     const [currentBirdTimer, setCurrentBirdTimer] = useState(0);
     const [currentBirdPlayer, setCurrentBirdPlayer] = useState("active");
