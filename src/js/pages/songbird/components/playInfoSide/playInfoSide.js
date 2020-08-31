@@ -6,6 +6,7 @@ import { stringToInt } from '../../utilites/stringToInt';
 import { intToString } from '../../utilites/intToString';
 import { playerAction } from '../../utilites/playerActions';
 import { songBirdDB } from '../../../../../assets/songBirdNames/SongBirdName';
+import { error, correct } from '../../../../../assets/songBirdAudio/audio';
 export function PlayInfoSide () {
   const level = useContext(LevelContext);
   console.log(level);
@@ -27,6 +28,7 @@ export function PlayInfoSide () {
           CopyLeveldb[index].tabState = true;
           setLeveldb(CopyLeveldb);
         }
+        correct.play();
         setLevelState('complited');
       }
       else{
@@ -37,6 +39,7 @@ export function PlayInfoSide () {
         if(points > 1){
           setPoints(points-1);
         }
+        error.play()
       }
     }
     let e = leveldb[index];

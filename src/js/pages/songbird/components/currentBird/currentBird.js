@@ -7,7 +7,6 @@ import { playerAction } from '../../utilites/playerActions';
 import { levelsObject } from '../../constants/levelsObject';
 export function CurrentBird (){
   const level = useContext(LevelContext);
-  console.log(level.leveldb.leveldb[level.answerState.correctAnswer]);
   let timer = level.currentBirdPanel.currentBirdTimer;
   let setTimer = level.currentBirdPanel.setCurrentBirdTimer;
   let player =  level.currentBirdPanel.currentBirdPlayer;
