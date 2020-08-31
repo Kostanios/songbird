@@ -20,16 +20,23 @@ export function PlayInfoSide () {
   if(levelState === 'in progress'){buttonState=" disabled"}
   else{buttonState=""}
   const loadBird = (index, setBirdIndex, lastBirdIndex) => {
+    let CopyLeveldb = leveldb;
     if(levelState === 'in progress'){
       if(level.answerState.correctAnswer === index){
+        if(!CopyLeveldb[index].tabState){
+          CopyLeveldb[index].tabState = true;
+          setLeveldb(CopyLeveldb);
+        }
         setLevelState('complited');
-        alert('true');
       }
       else{
+        if(!CopyLeveldb[index].tabState){
+          CopyLeveldb[index].tabState = false;
+          setLeveldb(CopyLeveldb);
+        }
         if(points > 1){
           setPoints(points-1);
         }
-        alert('false')
       }
     }
     let e = leveldb[index];
@@ -38,7 +45,6 @@ export function PlayInfoSide () {
         fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=0f15ff623f1198a1f7f52550f8c36057&tag_mode=all&extras=url_m&format=json&nojsoncallback=1&tags=${e.name}`)
         .then( result => result.json() )
         .then( photo => {
-          let CopyLeveldb = leveldb;
             let photo_url = (photo.photos.photo[0].url_m);
             if(CopyLeveldb[index].photoUrl === "" || CopyLeveldb[index].photoUrl === undefined){
               CopyLeveldb[index].photoUrl = photo_url;
@@ -105,9 +111,16 @@ function PlaySide (args) {
   let birdsArray = birdsIndex.map( (e, i) => {
     let birdName = birdsNames[e];
     let className;
-    i === args.birdIndex
-      ? className = "list-group-item list-group-item-action active"
-      : className = "list-group-item list-group-item-action"
+    if(i === args.birdIndex){
+      className = "list-group-item list-group-item-action active"
+      if(args.level.leveldb.leveldb[i].tabState === true){className+=" true"}
+      if(args.level.leveldb.leveldb[i].tabState === false){className+=" false"}
+    }
+    else{
+      className = "list-group-item list-group-item-action"
+      if(args.level.leveldb.leveldb[i].tabState === true){className+=" true"}
+      if(args.level.leveldb.leveldb[i].tabState === false){className+=" false"}
+    } 
     return <a
       className = {className}
       key={birdName}
@@ -141,9 +154,7 @@ function InfoSide (args) {
         setPlayer("active");
         setTimer(0);
       }
-    } catch(e){
-      console.log(e);
-    }
+    } catch(e){}
 
     if(player === ""){
       var timerId = setTimeout(()=>{
@@ -161,7 +172,7 @@ function InfoSide (args) {
   else{
     return <div className="col-8">
       <div className="songBird-current-bird-info">
-       самое время выбрать себе птичку
+        послушайте пение птицы и попробуйте угадать какой птице из списка принадлежит этот голос
       </div>
     </div>
   }
