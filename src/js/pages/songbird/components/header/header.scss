@@ -1,6 +1,7 @@
 .songbird-header{
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 .songbird-header div {
@@ -14,5 +15,8 @@
     color: white;
 }
 .songbird-label :nth-child(2){
+    color: rgba(255, 140, 0, 0.7);
+}
+.songbird-points{
     color: rgba(255, 140, 0, 0.7);
 }

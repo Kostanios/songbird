@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     width: 90%;
     background-color: rgb(31, 24, 9);
     border-radius: 5px;
@@ -11,9 +12,11 @@
     margin: 10px;
 }
 .songbird-currentbird{
+    border: 1px solid rgba(255, 140, 0, 0.7);
+    border-radius: 5px;
     width: 120px;
     height: 120px;
-    background: linear-gradient(180deg,rgba(8,15,26,.59),rgba(17,17,46,.46)), url("../../../../../assets/png/sticker_vk_wwf_012.png");
+    background: url("../../../../../assets/png/sticker_vk_wwf_012.png");
     background-size: cover;
 }
 .songbird-current-info{
@@ -24,7 +27,7 @@
     color: rgba(255, 140, 0, 0.7);
 }
 .songbird-player{
-    margin: 10px;
+    margin: 0 10px;
     display: flex;
     align-items: center;
 }
@@ -96,4 +99,48 @@
     transform: translateY(-4.5px) rotate(45deg);
     height: 26px;
     border-radius: 2px;
+}
+.flex-container{
+    display: flex;
+    justify-content: space-between;
+}
+.form-control-range{
+    width: 100px;
+}
+.songbird-birds-container{
+    min-width: 310px;
+    width: 30%;
+    margin: 5px;
+}
+.songBird-current-bird-info-container{
+    min-width: 310px;
+    width: 60%;
+    margin: 5px;
+}
+.songbird-PlayInfoSide{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.songBird-current-bird-info p{
+    text-align: center;
+    width: 90%;
+}
+.songBird-current-bird-info{
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+}
+@media (max-width: 825px) {
+    .songbird-birds-container{
+        width: 90%;
+    }
+    .songBird-current-bird-info-container{
+        width: 90%;
+    }
+}
+@media (max-width: 399px){
+    .songbird-info-player{
+        width: 100% !important;
+    }
 }
