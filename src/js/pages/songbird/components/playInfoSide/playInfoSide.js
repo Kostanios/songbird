@@ -40,7 +40,9 @@ export function PlayInfoSide () {
         .then( photo => {
           let CopyLeveldb = leveldb;
             let photo_url = (photo.photos.photo[0].url_m);
-            CopyLeveldb[index].photoUrl = photo_url;
+            if(CopyLeveldb[index].photoUrl === "" || CopyLeveldb[index].photoUrl === undefined){
+              CopyLeveldb[index].photoUrl = photo_url;
+            }
             setLeveldb(CopyLeveldb);
             setPlayer("active");
             try{
@@ -80,6 +82,7 @@ export function PlayInfoSide () {
       onClick={()=>{
         if(buttonState === ""){
           let index = level.levelState.levelIndex;
+          ////
           level.leveldb.setLeveldb(songBirdDB[index+1]);
           level.levelState.setLevelIndex(index+1);
           level.currentBirdPanel.setCurrentBirdPlayer("active");

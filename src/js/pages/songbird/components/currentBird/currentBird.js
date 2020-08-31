@@ -4,6 +4,7 @@ import "./currentBird.scss";
 import { stringToInt } from '../../utilites/stringToInt';
 import { intToString } from '../../utilites/intToString';
 import { playerAction } from '../../utilites/playerActions';
+import { levelsObject } from '../../constants/levelsObject';
 export function CurrentBird (){
   const level = useContext(LevelContext);
   console.log(level.leveldb.leveldb[level.answerState.correctAnswer]);
@@ -37,19 +38,6 @@ export function CurrentBird (){
   if( !duration ) { 
     duration = '...';
   }
-  function BirdImg ({level}) {
-    let leveldb = level.leveldb.leveldb;
-    let levelState = level.levelState.levelState;
-    console.log('progress-' + level.answerState.correctAnswer);
-    if(levelState !== 'complited'){
-      return <div className="songbird-currentbird"></div>
-    }
-    else{
-      console.log(level)
-      let secretImg = level.leveldb.leveldb[level.answerState.correctAnswer].photoUrl;
-      return <div className="songbird-currentbird" style={{background: `center / cover no-repeat url(${secretImg})`}}></div>
-    }
-  }
     return <div className="songbird-currentbird-container">
       <div className="songbird-img-container">
         <BirdImg 
@@ -58,7 +46,7 @@ export function CurrentBird (){
       </div>
       <div className="songbird-current-info">
         <div className="container flex-container">
-          <p className="songbird-question">ЧТО ЭТО ЗА ПТИЦА?</p>
+          <BirdName level={level}/>
           <input type="range" className="form-control-range" id="formControlRange"></input>
         </div>
           <div className="songbird-player">
@@ -91,3 +79,26 @@ export function CurrentBird (){
     </div>
 }
 //.duration
+function BirdName ({level}) {
+  let levelState = level.levelState.levelState;
+  console.log('answer-'+level.answerState.correctAnswer)
+  if(levelState !== 'complited'){
+    return <p className="songbird-question">ЧТО ЭТО ЗА ПТИЦА?</p>
+  }
+  else{
+    console.log(levelsObject)
+    let secretName = levelsObject[level.levelState.levelIndex].birds[level.answerState.correctAnswer];
+    return <p className="songbird-question">{secretName}</p>
+  }
+}
+function BirdImg ({level}) {
+  let levelState = level.levelState.levelState;
+  if(levelState !== 'complited'){
+    return <div className="songbird-currentbird"></div>
+  }
+  else{
+    console.log(level)
+    let secretImg = level.leveldb.leveldb[level.answerState.correctAnswer].photoUrl;
+    return <div className="songbird-currentbird" style={{background: `center / cover no-repeat url(${secretImg})`}}></div>
+  }
+}
